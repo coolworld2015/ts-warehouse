@@ -1,5 +1,5 @@
-# UI-Router
-git clone https://github.com/wintermute2015/ui-warehouse.git
+# TypeScript
+git clone https://github.com/wintermute2015/typescript.git
 -------------------------------------------------------------------------------------------------
 npm i
 -------------------------------------------------------------------------------------------------
