@@ -35,5 +35,5 @@ gulp.task('dev', ['tsc', 'index']);
 gulp.task('release', ['tsc:prod', 'index']);
 
 gulp.task('watch', ['dev'], function () {
-    gulp.watch('./app/**', ['dev']);
+    gulp.watch('./app/src/**', ['dev']);
 });
