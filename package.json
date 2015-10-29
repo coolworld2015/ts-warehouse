@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "gulp dev",
     "release": "gulp release",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "postinstall": "npm run dev"
   },
   "dependencies": {
     "gulp": "^3.8.11",
