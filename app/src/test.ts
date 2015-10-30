@@ -10,10 +10,19 @@ class Greeter {
 
 var greeter = new Greeter("CoolWorld");
 
-var button = document.createElement('button');
-button.textContent = "Say Hello";
-button.onclick = function() {
-    alert(greeter.greet());
+function greeting() {
+	div.innerHTML = '<div style="font-size:24px">' + '<center>' + greeter.greet();
+ 
 }
 
-document.body.appendChild(button);
+var button = document.createElement('button');
+button.textContent = "Say Hello";
+button.onclick = greeting;
+
+//document.body.appendChild(button);
+
+window.onload = greeting;
+
+var div = document.createElement('div');
+document.body.appendChild(div);
+
