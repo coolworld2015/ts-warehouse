@@ -1,17 +1,15 @@
 class Car {
-	// public name: string; Dont needed !!!
-
 	private _name: string;
 	
-	constructor (public name: string) {
- 
+	constructor (name: string) {
+ 		this.name = name;
 	}
 	
-	get name1(): string {
+	get name(): string {
 		return this._name;
 	}	
 	
-	set name1(value: string) {
+	set name(value: string) {
 		this._name = value;
 	}	
 }
