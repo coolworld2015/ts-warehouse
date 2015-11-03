@@ -1,5 +1,5 @@
 class Greeter {
-    greeting: string;
+    private greeting: string;
     constructor(message: string) {
         this.greeting = message;
     }

@@ -1,5 +1,6 @@
+var num1: number = 1;
 class Developer {
-	name: string;
+	private name: string;
 	constructor(name: string) {
 		this.name = name;
 	}
