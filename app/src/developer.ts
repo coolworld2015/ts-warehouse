@@ -8,3 +8,4 @@ class Developer {
 	}
 }
 var ed = new Developer('Edward');
+console.log(ed.sayHello());

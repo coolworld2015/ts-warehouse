@@ -1,11 +1,12 @@
 var gulp = require('gulp');
 var typescript = require('gulp-tsc');
+
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify'); 
  
 gulp.task('tsc', function(){
 	return gulp.src('./app/src/**/*.ts')
-		.pipe(typescript())
+		.pipe(typescript({target:'ES5'}))
 		.pipe(gulp.dest('./tmp/'))
 		.pipe(concat('app.js'))
         .pipe(gulp.dest('./build'));
@@ -13,7 +14,7 @@ gulp.task('tsc', function(){
 
 gulp.task('tsc:prod', function(){
 	return gulp.src('./app/src/**/*.ts')
-		.pipe(typescript())
+		.pipe(typescript({target:'ES5'}))
 		.pipe(gulp.dest('./tmp/'))
 		.pipe(concat('app.js'))
 		.pipe(uglify())
