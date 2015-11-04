@@ -3,7 +3,7 @@ class Developer {
 	constructor(name: string) {
 		this.name = name;
 	}
-	sayHello() {
+	public sayHello() {
 		return 'Dev name is ' + this.name;
 	}
 }
