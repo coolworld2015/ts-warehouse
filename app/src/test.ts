@@ -16,7 +16,7 @@ module types {
 		sayHelloOld: function() {
 			return console.log(this.name);
 		},
-		sayHello: () => console.log('Cool')
+		sayHello: () => console.log('Cool') 
 	};
 	person.sayHello();
 
