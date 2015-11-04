@@ -12,18 +12,19 @@ var scripts = [
     './app/tmp/**/*.js',
 ];
 
-var getScripts = function () {
-    return gulp.src(scripts)
-        .pipe(concat('app.js'))
-        .pipe(gulp.dest('./build'));
-};
-
 gulp.task('scripts', function () {
     return gulp.src(scripts)
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./build'));
 });
- 
+
+gulp.task('scripts:prod', function () {
+    return gulp.src(scripts)
+        .pipe(concat('app.js'))
+		.pipe(uglify())		
+        .pipe(gulp.dest('./build'));
+});
+
 gulp.task('tsc', function(){
 	return gulp.src('./app/src/**/*.ts')
 		.pipe(typescript({target:'ES5'}))
@@ -45,7 +46,7 @@ gulp.task('index', function () {
 });
 
 gulp.task('dev', ['tsc', 'index']);
-gulp.task('release', ['tsc:prod', 'index']);
+gulp.task('release', ['tsc', 'scripts:prod', 'index']);
 
 gulp.task('watch', ['dev', 'scripts'], function () {
     gulp.watch('./app/src/**', ['dev']);
