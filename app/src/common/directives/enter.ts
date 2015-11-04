@@ -1,4 +1,4 @@
-/// <reference path='../app/angular.d.ts' />
+/// <reference path='../lib/angular.d.ts' />
 
  	angular
 		.module('app')
@@ -8,9 +8,7 @@
 
 	function coolTimer($filter, $interval) {
   		return {
-			scope: {
-			obj: '='
-			},
+ 
 			link: function(scope, element, attrs) {
 				start();
 				scope.$on('timer-start', start);

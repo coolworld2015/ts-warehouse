@@ -3,15 +3,12 @@
 <body>
 	<script src="app.js"></script>
 	
-	<div ng-controller='ClientsCtrl as vm'>
+	<div ng-controller="ClientsCtrl as vm">
 		<center>
-		<h1>{{vm.title}}</h1> 
-		
-		<br>
-		
+		<h1 ng-click="vm.init()">{{vm.title}}</h1> 
+
 		<div cool-timer></div>
-		
 	</div
-	
+
 </body>
 </html>
