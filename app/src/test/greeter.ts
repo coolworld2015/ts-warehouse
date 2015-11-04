@@ -20,9 +20,9 @@ var button = document.createElement('button');
 button.textContent = 'Say Hello';
 button.onclick = greeting;
 
-document.body.appendChild(button);
+//document.body.appendChild(button);
 
-window.onload = greeting;
+//window.onload = greeting;
 
 var div = document.createElement('div');
 document.body.appendChild(div);

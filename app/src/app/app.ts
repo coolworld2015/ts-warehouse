@@ -21,6 +21,6 @@ namespace CoolWorld {
         function init() {
             vm.title = 'CoolWorld';
 		}		
-	}		
+	}	
 	
 }

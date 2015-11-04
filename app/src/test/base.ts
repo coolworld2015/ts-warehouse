@@ -15,5 +15,5 @@ class Derived extends Base {
 		div.innerHTML += '<br>' + "Derived initialized";
 	}
 }
-var base = new Base();
-var test:Derived = new Derived();
+//var base = new Base();
+//var test:Derived = new Derived();
