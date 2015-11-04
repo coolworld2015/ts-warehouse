@@ -5,11 +5,11 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify'); 
 
 var scripts = [
-    './app/tmp/*.js',
-    './app/vendors/angular/angular.js'
+    './app/vendors/angular/angular.js',
 //    './app/vendors/angular-bootstrap/ui-bootstrap-tpls.js',
 //    './app/vendors/angular-ui-router/release/angular-ui-router.js',
 //    './app/src/**/!(*.test).js'
+    './app/tmp/**/*.js',
 ];
 
 var getScripts = function () {
@@ -47,7 +47,7 @@ gulp.task('index', function () {
 gulp.task('dev', ['tsc', 'index']);
 gulp.task('release', ['tsc:prod', 'index']);
 
-gulp.task('watch', ['dev'], function () {
+gulp.task('watch', ['dev', 'scripts'], function () {
     gulp.watch('./app/src/**', ['dev']);
     gulp.watch('./app/tmp/**', ['scripts']);
 });
