@@ -18,13 +18,13 @@ module types {
 		},
 		sayHello: () => console.log('Cool 51')
 	};
-	person.sayHello();
+	//person.sayHello();
 
 	let doSomething: Function = () => console.log(any1);
-	doSomething();
+	//doSomething();
 
 	let addTwo = (a: number, b: number) => a + b;
-	console.log(addTwo(2,3));
+	//console.log(addTwo(2,3));
 
 	interface TestInterface {
 		(x: number): number;
@@ -32,7 +32,7 @@ module types {
 
 	let testInterface: TestInterface =
 		(num) => (num * num);
-	console.log(testInterface(5));
+	//console.log(testInterface(5));
 
 	interface Developer {
 		name: string;
@@ -47,6 +47,6 @@ module types {
 			return this.name + ' has skills: ' +this.skills;
 		}
 	};
-	console.log(ed.sayHello());
+	//console.log(ed.sayHello());
     ed.skills
 }

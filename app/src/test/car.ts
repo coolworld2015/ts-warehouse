@@ -18,6 +18,6 @@ class Car {
 }
 
 let car = new Car('Smart');
-console.log(car.name);
+//console.log(car.name);
 car.name = 'Cool';
-console.log(car.name);
+//console.log(car.name);
