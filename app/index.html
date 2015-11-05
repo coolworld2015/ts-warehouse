@@ -6,8 +6,18 @@
 	<div ng-controller="ClientsCtrl as vm">
 		<center>
 		<h1 ng-click="vm.init()">{{vm.title}}</h1> 
-
-		<div cool-timer></div>
+		<hr>
+			<span cool-timer>Time</span>
+		<hr>
+		
+		<table border=1 style="width:100%">
+			<th>Name</th>
+			<th>Price</th>
+			<tr ng-repeat="item in vm.products track by $index">
+				<td>{{item.name}}</td>
+				<td>{{item.price | number:2}}</td>
+			</tr>
+		</table>
 	</div
 
 </body>
