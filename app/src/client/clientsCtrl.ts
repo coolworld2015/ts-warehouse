@@ -9,15 +9,23 @@ module app.clients {
 	}
 
 	class ClientsCtrl implements IClient{
-		static $inject = ['ClientsService'];
+		static $inject = ['ClientsService', 'ClientsFactory'];
 		
 		title: string;
 		clients: any[];
 		
-		constructor(clientsService) {
-			this.clients = clientsService.getClients();
+		constructor(ClientsService, ClientsFactory) {
+			this.clients = ClientsService.getClients();
+			//this.clients = [];
 			this.title = 'TypeScript';
- 
+			//this.title = ClientsFactory.getClients(); 
+			let vm = this;
+			ClientsFactory.getClients() 
+				.then(function(data){
+					vm.clients = data.data.splice(0,5); 
+				})
+
+				
 			//this.init();
 			//this.setClients();
 		}
@@ -30,9 +38,9 @@ module app.clients {
 			this.clients.push(newProduct);
 		}; 
 		
-		setClients(clientsService): void {
-				console.log(clientsService)
-			//this.clients = clientsService.getClients();
+		setClients(ClientsService): void {
+				console.log(ClientsService)
+			//this.clients = ClientsService.getClients();
 		};
 	}
 
@@ -40,6 +48,29 @@ module app.clients {
 		.module('app')
 		.controller('ClientsCtrl', ClientsCtrl);
 	
+}
+
+module app.services {
+	export function ClientsFactory($http: ng.IHttpService): any {
+		return {
+			getClients: getClients
+		}
+		
+		function getClients() {
+            var url = 'http://coolworld2015a1.herokuapp.com/api/clients/get';
+            return $http.get(url)
+                .then(function (result) {
+                    result.data.sort();
+                    return result;
+                });
+		}
+
+	}
+	ClientsFactory.$inject = ["$http"];
+
+	angular
+		.module('app')
+		.factory("ClientsFactory", app.services.ClientsFactory);
 }
 
 module app.data {  
