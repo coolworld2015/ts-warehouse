@@ -10,12 +10,12 @@
 			<span cool-timer>Time</span>
 		<hr>
 		
-		<table border=1 style="width:100%">
-			<th>Name</th>
-			<th>Price</th>
-			<tr ng-repeat="item in vm.products track by $index">
+		<table border=1 style="width:100%" ng-click="vm.setClients()">
+			<th style="width:50%">Name</th>
+			<th style="width:50%">Description</th>
+			<tr ng-repeat="item in vm.clients track by $index">
 				<td>{{item.name}}</td>
-				<td>{{item.price | number:2}}</td>
+				<td>{{item.description}}</td>
 			</tr>
 		</table>
 	</div
