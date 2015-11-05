@@ -1,14 +1,14 @@
 /// <reference path='../common/lib/angular.d.ts' />
   
 module app.clients {  
-	interface IClient {
+	interface IClients {
 		title: string;
 		init(): void;
-		setClients(clientsService): void;
+		setClients(): void;
 		clients: any[];
 	}
 
-	class ClientsCtrl implements IClient{
+	class ClientsCtrl implements IClients{
 		static $inject = ['ClientsService', 'ClientsFactory'];
 		
 		title: string;
@@ -16,16 +16,14 @@ module app.clients {
 		
 		constructor(ClientsService, ClientsFactory) {
 			this.clients = ClientsService.getClients();
-			//this.clients = [];
 			this.title = 'TypeScript';
-			//this.title = ClientsFactory.getClients(); 
+			
 			let vm = this;
 			ClientsFactory.getClients() 
 				.then(function(data){
 					vm.clients = data.data.splice(0,5); 
 				})
 
-				
 			//this.init();
 			//this.setClients();
 		}
@@ -38,8 +36,8 @@ module app.clients {
 			this.clients.push(newProduct);
 		}; 
 		
-		setClients(ClientsService): void {
-				console.log(ClientsService)
+		setClients(): void {
+				//console.log(vm.ClientsService) 
 			//this.clients = ClientsService.getClients();
 		};
 	}
