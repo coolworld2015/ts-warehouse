@@ -11,11 +11,13 @@ module app.clients {
 		
 		constructor() {
 			this.title = 'TypeScript'; 
+			//this.init();
 		}
 		
 		init(): void {
 			this.title = 'CoolWorld';
 		};
+
 	}
 
 	angular
