@@ -9,12 +9,12 @@ module app.clients {
 	}
 
 	class ClientsCtrl implements IClients{
-		static $inject = ['ClientsService', 'ClientsFactory'];
+		static $inject = ['$state', 'ClientsService', 'ClientsFactory'];
 
 		title: string;
 		clients: any[];
 
-		constructor(ClientsService, ClientsFactory) {
+		constructor(private $state: any, private ClientsService: any, private ClientsFactory: any) {
 			this.clients = ClientsService.getClients();
 			this.title = 'TypeScript';
 
@@ -33,8 +33,20 @@ module app.clients {
 			this.clients.push(newProduct);
 		}
 
+		getClients(): void {
+			let vm = this;
+			this.ClientsFactory.getClients()
+				.then(function(data){
+					vm.clients = data.data.splice(0,5);
+				});
+		}
+
 		setClients(): void {
-				//console.log(vm.ClientsService)
+			this.clients = this.ClientsService.getClients();
+		}
+
+		clientsBack(): void {
+			this.$state.go('main');
 		}
 	}
 
