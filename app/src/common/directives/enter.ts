@@ -1,5 +1,4 @@
-/// <reference path='../lib/angular.d.ts' />
-
+/// <reference path='../lib/angularjs/angular.d.ts' />
  	angular
 		.module('app')
 		.directive('coolTimer', coolTimer);

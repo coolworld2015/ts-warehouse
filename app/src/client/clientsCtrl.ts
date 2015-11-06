@@ -1,4 +1,4 @@
-/// <reference path='../common/lib/angular.d.ts' />
+/// <reference path='../common/lib/angularjs/angular.d.ts' />
   
 module app.clients {  
 	interface IClients {
@@ -18,7 +18,7 @@ module app.clients {
 			this.clients = ClientsService.getClients();
 			this.title = 'TypeScript';
 			
-			let vm = this;
+			let vm = this; 
 			ClientsFactory.getClients() 
 				.then(function(data){
 					vm.clients = data.data.splice(0,5); 
@@ -58,7 +58,6 @@ module app.services {
             var url = 'http://coolworld2015a1.herokuapp.com/api/clients/get';
             return $http.get(url)
                 .then(function (result) {
-                    result.data.sort();
                     return result;
                 });
 		}
