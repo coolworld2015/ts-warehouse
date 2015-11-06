@@ -64,6 +64,7 @@ module app.services {
 		}
 
 	}
+	
 	ClientsFactory.$inject = ["$http"];
 
 	angular
