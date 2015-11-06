@@ -3,6 +3,7 @@ node_modules
 app/vendors
 
 *.log
+*.map
 
 build
 reports
