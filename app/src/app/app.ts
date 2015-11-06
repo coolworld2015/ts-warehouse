@@ -5,15 +5,7 @@ module app {
     angular
         .module('app', ['ui.router']);
 
-    angular
-        .module('app')
-        .config(routeConfig);
-
-
-    routeConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-
-    function routeConfig($stateProvider, $urlRouterProvider) {
-        //$urlRouterProvider.otherwise('/login');  //TODO
+    let routeConfig = ($stateProvider, $urlRouterProvider) => {
         $urlRouterProvider.otherwise('/main');
 
         $stateProvider
@@ -30,5 +22,11 @@ module app {
                 controller: 'ClientsCtrl',
                 controllerAs: 'clientsCtrl'
             })
-    }
+    };
+
+    angular
+        .module('app')
+        .config(routeConfig);
+
+    routeConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 }

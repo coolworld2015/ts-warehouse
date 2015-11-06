@@ -18,36 +18,30 @@ module app.clients {
 			this.clients = ClientsService.getClients();
 			this.title = 'TypeScript';
 
-			let vm = this;
-			ClientsFactory.getClients()
-				.then(function(data){
-					vm.clients = data.data.splice(0,5);
-				});
-			//this.init();
+			this.getClients();
 		}
 
-		init(): void {
+		public init = (): void => {
 			this.title = 'CoolWorld';
 			let newProduct = new app.product.Product("item2", 333);
 			this.clients.splice(0,10);
 			this.clients.push(newProduct);
-		}
+		};
 
-		getClients(): void {
-			let vm = this;
+		public getClients = (): void => {
 			this.ClientsFactory.getClients()
 				.then(function(data){
-					vm.clients = data.data.splice(0,5);
-				});
-		}
+					this.clients = data.data.splice(0,5);
+				}.bind(this));
+		};
 
-		setClients(): void {
+		public setClients = (): void => {
 			this.clients = this.ClientsService.getClients();
-		}
+		};
 
-		clientsBack(): void {
+		public clientsBack = (): void => {
 			this.$state.go('main');
-		}
+		};
 	}
 
 	angular
