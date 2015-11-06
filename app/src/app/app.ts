@@ -28,7 +28,7 @@ module app {
                 url: '/clients',
                 templateUrl: 'clients/clients.html',
                 controller: 'ClientsCtrl',
-                controllerAs: 'loginCtrl'
+                controllerAs: 'clientsCtrl'
             })
     }
 }
