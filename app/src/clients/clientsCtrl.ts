@@ -9,10 +9,10 @@ module app.clients {
 	}
 
 	class ClientsCtrl implements IClients{
-		static $inject = ['$state', 'ClientsService', 'ClientsFactory'];
+		public static $inject = ['$state', 'ClientsService', 'ClientsFactory'];
 
-		title: string;
-		clients: any[];
+		public title: string;
+		public clients: any[];
 
 		constructor(private $state: any, private ClientsService: any, private ClientsFactory: any) {
 			this.clients = ClientsService.getClients();
@@ -49,62 +49,5 @@ module app.clients {
 		.controller('ClientsCtrl', ClientsCtrl);
 }
 
-module app.services {
-	export function ClientsFactory($http: ng.IHttpService): any {
-		return {
-			getClients: getClients
-		};
 
-		function getClients() {
-            var url = 'http://coolworld2015a1.herokuapp.com/api/clients/get';
-            return $http.get(url)
-                .then(function (result) {
-                    return result;
-                });
-		}
 
-	}
-	
-	ClientsFactory.$inject = ["$http"];
-
-	angular
-		.module('app')
-		.factory("ClientsFactory", app.services.ClientsFactory);
-}
-
-module app.data {
-	export class ClientsService{
-		public getClients() {
-			let clients = localStorage.getItem('warehouse_clients');
-			clients = JSON.parse(clients);
-			return clients.splice(0,10);
-		}
-	}
-
-	angular
-		.module('app')
-		.service('ClientsService', ClientsService);
-}
-
-module app.product {
-	export interface IProduct {
-		name: string;
-		price: number;
-		showName(): string;
-		showPrice(): number;
-	}
-
-	export class Product implements IProduct{
-		constructor(public name: string,
-					public price: number) {
-		}
-
-		showName(): string {
-			return this.name;
-		}
-
-		showPrice(): number {
-			return this.price;
-		}
-	}
-}	
