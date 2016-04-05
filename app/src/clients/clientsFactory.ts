@@ -5,7 +5,7 @@ module app.clients.factory {
         };
 
         function getClients() {
-            var url = 'http://coolworld2015a1.herokuapp.com/api/clients/get';
+            var url = 'http://ui-warehouse.herokuapp.com/api/clients/get';
             return $http.get(url)
                 .then(function (result) {
                     return result;
